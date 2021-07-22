@@ -1,2 +1,2 @@
-# pyautogui-vscode-extension
-GUI for creating pyautogui scripts
+# PEV
+ Pyautogui Extension for Vscode - GUI helper for creating pyautogui scripts
