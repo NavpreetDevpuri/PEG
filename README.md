@@ -1,2 +1,2 @@
-# PEV
- Pyautogui Extension for Vscode - GUI helper for creating pyautogui scripts
+# PEG
+ Pyautogui Extension with GUI - GUI helper for creating pyautogui scripts
