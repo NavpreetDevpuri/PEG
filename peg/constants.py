@@ -1,4 +1,5 @@
-class STEP_TYPES:
+class TaskTypes:
+    RACE = "RACE"
     WAIT = "WAIT"
     CLICK = "CLICK"
-    CHECK_PRESENCE = ""
+    IS_PRESENCE = "IS_PRESENCE"

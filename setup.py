@@ -19,11 +19,9 @@ setup(
         "Operating System :: OS Independent",
     ],
     license="MIT License",
-    entry_points={
-        "console_scripts": [
-            "peg = peg.__main__:main",
-        ],
-    },
+    entry_points=dict(console_scripts=[
+        "peg = peg.__main__:main",
+    ]),
     url="https://github.com/NavpreetDevpuri/peg",
     author="Navpreet Devpuri",
     author_email="NavpreetDevpuri@gmail.com",
