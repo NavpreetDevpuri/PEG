@@ -18,10 +18,10 @@ class Peg:
             screenshot_name_to_path_map[screenshot_name] = screenshot_path
         return screenshot_name_to_path_map
 
-    def open_run_window(self):
+    def open_run_command_window(self):
         0
 
-    def open_file_or_folder_from_run_window(self, file_path):
+    def open_file_or_folder_from_run_command_window(self, file_path):
         0
 
     def open_file_from_file_explorer_using_keyword(self, file_path):
