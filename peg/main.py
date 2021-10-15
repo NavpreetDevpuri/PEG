@@ -24,9 +24,6 @@ class Peg:
     def open_file_or_folder_from_run_command_window(self, file_path):
         0
 
-    def open_file_from_file_explorer_using_keyword(self, file_path):
-        0
-
     def download_file_from_url_using_chrome(self, file_url):
         0
 
