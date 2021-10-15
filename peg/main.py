@@ -21,7 +21,7 @@ class Peg:
     def open_run_command_window(self):
         0
 
-    def open_file_or_folder_from_run_command_window(self, file_path):
+    def open_file_or_folder_from_run_command_window(self, file_or_folder_path):
         0
 
     def download_file_from_url_using_chrome(self, file_url):
