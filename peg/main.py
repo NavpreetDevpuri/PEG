@@ -19,11 +19,17 @@ class Peg:
         return screenshot_name_to_path_map
 
     def open_run_command_window(self):
-        0
+        pyautogui.hotkey('win','r')
 
     def open_file_or_folder_from_run_command_window(self, file_or_folder_path):
-        0
+        pyautogui.hotkey('win','r')
+        pyautogui.write(file_or_folder_path)
+        pyautogui.hotkey('enter')
 
     def download_file_from_url_using_chrome(self, file_url):
-        0
+        pyautogui.hotkey('win','r')
+        pyautogui.write('chrome')
+        pyautogui.hotkey('alt','d')
+        pyautogui.write(file_url)
+        pyautogui.hotkey('enter')
 
