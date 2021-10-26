@@ -3,6 +3,7 @@ __all__ = ["Peg"]
 import pyautogui
 import os
 
+from constants import MouseButtons
 
 class Peg:
     def __init__(self, project_dir):
@@ -45,3 +46,33 @@ class Peg:
         pyautogui.hotkey('ctrl', 's', interval=1)
         # if window is there then we have to press enter button to download file
         pyautogui.hotkey('enter')
+
+    def click_at(self, mouse_button, image_file_path='', click_coordinates=(50, 50)):
+        # All click functions have the 2 first parameters as 'x' and 'y' of the click
+        available_click_actions = {
+            MouseButtons.LEFT_BUTTON: pyautogui.leftClick,
+            MouseButtons.MIDDLE_BUTTON: pyautogui.middleClick,
+            MouseButtons.RIGHT_BUTTON: pyautogui.rightClick,
+        }
+
+        # Not a 'MouseButtons' constant
+        if mouse_button not in available_click_actions:
+            return
+
+        x, y = click_coordinates
+
+        if image_file_path:
+            image_location = pyautogui.locateOnScreen(
+                image_file_path, confidence=0.9)
+
+            # Could not find the image
+            if not image_location:
+                return
+
+            left, top = image_location.left, image_location.top
+
+            x += top
+            y += left
+
+        selected_click_action = available_click_actions[mouse_button]
+        selected_click_action(x, y)
