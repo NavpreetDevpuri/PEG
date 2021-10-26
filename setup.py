@@ -27,6 +27,7 @@ setup(
     author_email="NavpreetDevpuri@gmail.com",
     install_requires=[
         "pyautogui",
+        "opencv-python"
     ],
     extras_require={
         "dev": [
