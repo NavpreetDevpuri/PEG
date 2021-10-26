@@ -47,6 +47,7 @@ class Peg:
         # if window is there then we have to press enter button to download file
         pyautogui.hotkey('enter')
 
+
     def click_at(self, mouse_button, image_file_path='', click_coordinates=(50, 50)):
         # All click functions have the 2 first parameters as 'x' and 'y' of the click
         available_click_actions = {
@@ -76,3 +77,20 @@ class Peg:
 
         selected_click_action = available_click_actions[mouse_button]
         selected_click_action(x, y)
+
+    def change_power_options(self,screen_off_on_battery, screen_off_when_plugged, sleep_on_battery,
+                             sleep_when_plugged):
+        self.open_run_command_window()
+        pyautogui.write('powershell')
+        pyautogui.hotkey('enter', interval=1)
+        pyautogui.write(f'powercfg /change monitor-timeout-dc {screen_off_on_battery}')
+        pyautogui.hotkey('enter', interval=1)
+        pyautogui.write(f'powercfg /change monitor-timeout-ac {screen_off_when_plugged}')
+        pyautogui.hotkey('enter', interval=1)
+        pyautogui.write(f'powercfg /change standby-timeout-dc {sleep_on_battery}')
+        pyautogui.hotkey('enter', interval=1)
+        pyautogui.write(f'powercfg /change standby-timeout-ac {sleep_when_plugged}')
+        pyautogui.hotkey('enter', interval=1)
+        # close the window
+        pyautogui.write('exit')
+        pyautogui.hotkey('enter')
