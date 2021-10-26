@@ -17,25 +17,25 @@ class Peg:
             screenshot_path = os.path.join(self.screenshots_dir, screenshot_name)
             screenshot_name_to_path_map[screenshot_name] = screenshot_path
         return screenshot_name_to_path_map
-    
+
     def open_run_command_window(self):
         pyautogui.hotkey('win', 'r')
-        
+
     def open_chrome(self):
-        open_run_command_window()
+        self.open_run_command_window()
         pyautogui.write('chrome')
         pyautogui.hotkey('enter', interval=3)
 
-    def open_file_or_folder_from_run_command_window(self,file_or_folder_path):
+    def open_file_or_folder_from_run_command_window(self, file_or_folder_path):
         # open run window
-        open_run_command_window()
+        self.open_run_command_window()
         # write path in run window
         pyautogui.write(file_or_folder_path)
         # press enter so that we go to that  path
         pyautogui.hotkey('enter')
 
-    def download_file_from_url_using_chrome(self,file_url):
-        open_chrome()
+    def download_file_from_url_using_chrome(self, file_url):
+        self.open_chrome()
         # We got to enter url section
         pyautogui.hotkey('alt', 'd')
         # paste the given file url so that we can download the file
