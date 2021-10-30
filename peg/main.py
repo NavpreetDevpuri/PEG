@@ -48,35 +48,39 @@ class Peg:
         pyautogui.hotkey('enter')
 
 
-    def click_at(self, mouse_button, image_file_path='', click_coordinates=(50, 50)):
-        # All click functions have the 2 first parameters as 'x' and 'y' of the click
+    def click_at(
+        self,
+        image_file_path,
+        click_coordinates=(50, 50),
+        mouse_button_click_action=pyautogui.leftClick,
+        **kwargs,
+    ):
         available_click_actions = {
-            MouseButtons.LEFT_BUTTON: pyautogui.leftClick,
-            MouseButtons.MIDDLE_BUTTON: pyautogui.middleClick,
-            MouseButtons.RIGHT_BUTTON: pyautogui.rightClick,
+            pyautogui.leftClick,
+            pyautogui.middleClick,
+            pyautogui.rightClick,
         }
 
         # Not a 'MouseButtons' constant
-        if mouse_button not in available_click_actions:
-            return
+        if mouse_button_click_action not in available_click_actions:
+            raise ValueError(
+                f'Invalid "mouse_button_click_action": {mouse_button_click_action}'
+            )
 
         x, y = click_coordinates
 
-        if image_file_path:
-            image_location = pyautogui.locateOnScreen(
-                image_file_path, confidence=0.9)
+        image_location = pyautogui.locateOnScreen(image_file_path, **kwargs)
 
-            # Could not find the image
-            if not image_location:
-                return
+        # Could not find the image
+        if not image_location:
+            raise Exception(f"Unable to locate given image: {image_file_path}")
 
-            left, top = image_location.left, image_location.top
+        left, top = image_location.left, image_location.top
 
-            x += top
-            y += left
+        x += top
+        y += left
 
-        selected_click_action = available_click_actions[mouse_button]
-        selected_click_action(x, y)
+        mouse_button_click_action(x, y)
 
     def change_power_options(self,screen_off_on_battery, screen_off_when_plugged, sleep_on_battery,
                              sleep_when_plugged):
