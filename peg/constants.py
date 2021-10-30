@@ -4,7 +4,7 @@ class TaskTypes:
     CLICK = "CLICK"
     IS_PRESENCE = "IS_PRESENCE"
 
-class MouseButtons:
-    LEFT_BUTTON = 1
-    MIDDLE_BUTTON = 2
-    RIGHT_BUTTON = 3
+class MouseButtonsActions:
+    LEFT_BUTTON_CLICK_ACTION = pyautogui.leftClick
+    MIDDLE_BUTTON_CLICK_ACTION = pyautogui.middleClick
+    RIGHT_BUTTON_CLICK_ACTION = pyautogui.rightClick
